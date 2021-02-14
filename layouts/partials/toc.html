@@ -1,0 +1,11 @@
+{{ if .Params.toc}}
+    <aside class="table-of-contents text-decoration-none text-muted">
+        <header class="pb-1 mb-3 border-bottom">
+            <a href="#" class="text-muted text-decoration-none">
+                <span class="h6 text">Top of the Page</span>
+            </a>
+        </header>
+        
+        {{ .TableOfContents }}
+    </aside>
+{{ end }}

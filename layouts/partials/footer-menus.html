@@ -1,0 +1,22 @@
+{{ range . }}
+<div class="col-6 col-md">
+    
+    <h5>
+        {{ if .URL }}
+        <a class="link-primary" href="{{ .URL }}">{{ .Pre }}{{ .Name  }}{{ .Post }}</a>
+        {{ else }}
+        {{ .Pre }}{{ .Name  }}{{ .Post }}
+        {{ end }}
+    </h5>
+
+    {{ if .HasChildren }}
+    <ul class="list-unstyled text-small">
+        {{ range .Children }}
+        {{/* TODO: Figure out what .Pre and .Post are actually for. */}}
+        <li><a class="link-secondary" href="{{ .URL }}">{{ .Pre }}{{ .Name }}{{ .Post}}</a>
+        {{ end }}
+    </ul>
+    {{ end }}
+
+</div>
+{{ end }}

@@ -1,0 +1,14 @@
+{{ if isset .Site.Params "title_icon" }}
+    <span class="text-primary">
+        <i class="bi bi-{{ .Site.Params.title_icon }}"></i>
+    </span>
+    <span class="text-secondary">
+        {{ .Site.Title }}
+    </span>
+
+{{ else }}
+
+    <span class="text-primary">
+        {{ .Site.Title }}
+    </span>
+{{ end }}

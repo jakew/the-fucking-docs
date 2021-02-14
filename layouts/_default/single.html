@@ -1,0 +1,45 @@
+{{ define "main" }}
+
+<div class="row">
+    <div class="offset-md-2 col-md-8 col-12 text-center mt-5">
+        <div class="mb-3">
+            <h1 class="mb-0">
+                {{ .Title }}
+                {{ if isset .Params "title_icon" }}
+                <i class="bi bi-{{ .Params.title_icon }}"></i>
+                {{ end }}
+                
+            </h1>
+            
+            {{ if isset .Params "subtitle" }}
+            <span class="text-muted mt-0">{{ .Params.subtitle }}</span>
+            {{ end }}
+        </div>
+    </div>
+</div>
+
+<div class="row gx-5 mt-2">
+    <!-- Sidebar -->
+    <div class="col-md-2 col-12 order-1">
+        {{ partial "sidebar.html" . }}
+    </div>
+
+    <!-- Content Body -->
+    <div class="col-md-8 col-12 border-start border-end order-2 px-5">
+        <section>
+            <div>
+                {{ .Content }}
+            </div>
+
+            <div>
+                <span class="text-muted">Comments [1]</span>
+            </div>
+        </section>
+    </div>
+
+    <div class="col-md-2 order-3">
+        {{ partial "toc.html" . }}
+    </div>
+</div>
+
+{{ end }}

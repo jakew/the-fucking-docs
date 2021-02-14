@@ -1,0 +1,34 @@
+<div class="col-md-8 order-md-1 col-lg-7 text-center text-md-start">
+    <h1 class="mb-3">
+        {{ if isset .Params "cta_title" }}
+            {{ .Params.cta_title }}
+        {{ else }}
+            {{ .Site.Title  }}
+        {{ end }}
+    </h1>
+    
+    <p class="lead mb-4">
+        {{ block "cta-description" . }}
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Dictumst quisque sagittis purus sit amet volutpat consequat mauris nunc.
+        {{ end }}
+    </p>
+
+    {{ if isset .Params "cta_actions" }}
+    <div class="d-flex flex-column flex-md-row">
+        {{ range .Params.cta_actions }}
+        <a href="{{ .url }}" class="btn btn-lg {{ with .style }}btn-{{ . }} {{end}}mb-3 me-md-3">{{ .title }}</a>
+        {{ end }}
+    </div>
+    {{ end }}
+
+    {{ block "cta_footer" . }}
+    <p class="text-muted mb-0">
+        Currently <strong>v5.0.0-beta2</strong>
+        <span class="px-1">·</span>
+        <a href="https://getbootstrap.com/docs/4.6/getting-started/introduction/" class="link-secondary">v4.6.x docs</a>
+        <span class="px-1">·</span>
+        <a href="/docs/versions/" class="link-secondary">All releases</a>
+    </p>
+    {{ end }}
+</div>

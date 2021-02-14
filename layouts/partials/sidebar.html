@@ -1,0 +1,46 @@
+{{ $currentPage := . }}
+
+<nav aria-label="Docs navigation">
+    <ul class="list-unstyled">
+
+        {{ range $i, $item := .Site.Menus.main }}
+
+        <li>
+            
+            {{ if $item.HasChildren }}
+            <button 
+                class="btn d-inline-flex align-items-center rounded" 
+                data-bs-toggle="collapse" data-bs-target="#menu-item-{{ $i }}" 
+                aria-expanded="true" aria-current="true">
+                {{ .Name }}
+            </button>
+
+            <div class="collapse show" id="getting-started-collapse" style="">
+                <ul class="list-unstyled fw-normal pb-1 small">
+
+                    {{ range $item.Children }}
+                        <li>
+                            <a class="d-inline-flex align-items-center rounded {{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}" 
+                            aria-current="page"
+                                href="{{ .URL }}"
+                                >
+                                {{ .Name }}
+                            </a>
+                        </li>
+                    {{ end }}
+
+                </ul>
+            </div>
+
+            {{ else }}
+            <a class="d-inline-flex align-items-center rounded"
+                href="{{ $item.URL }}">
+                {{ $item.Name }}
+            </a>
+            {{ end }}
+        </li>
+
+        {{ end }}
+
+    </ul>
+</nav>

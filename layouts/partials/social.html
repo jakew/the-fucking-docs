@@ -1,0 +1,18 @@
+<ul class="list-inline">
+    {{ range . }}
+    
+    <li class="list-inline-item">
+        <a href="{{ .URL }}" target="_blank">
+            {{ .Pre }} 
+            {{ if in (slice "github" "twitter" "slack" "youtube") (lower .Name) }}
+                <i class="bi bi-{{ lower .Name }} me-3"></i>
+            {{ else }}
+                {{ .Name }}
+            {{ end }}
+            {{ .Post }}
+        </a>
+    </li>
+
+    {{ end }}
+</div>
+

@@ -1,0 +1,8 @@
+<h{{ .Level }} 
+    id="{{ .Anchor | safeURL }}" 
+    class="{{ if (lt .Level 3 ) }}border-bottom pt-5 mb-3{{ else }} pt-3 mb-2{{ end }}">
+    <a class="anchor" href="#{{ .Anchor | safeURL }}">
+        <i class="bi bi-tag"></i>
+    </a>
+    {{ .Text | safeHTML }}
+</h{{ .Level }}>

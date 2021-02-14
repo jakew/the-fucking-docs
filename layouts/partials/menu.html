@@ -1,0 +1,26 @@
+<ul class="navbar-nav">
+    {{ range . }}
+        {{ if .HasChildren }}
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    href="{{ .URL }}">
+
+                    {{ .Pre }}
+                    {{ .Name }}
+                    {{ .Post }}
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    {{ range .Children }}
+                        <li><a class="dropdown-item" href="{{ .URL }}">{{ .Name }}</a>
+                    {{ end }}
+                    <!-- <li><hr class="dropdown-divider"></li> -->
+                </ul>
+            </li>
+        {{ else }}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ .URL }}">{{ .Pre }} {{ .Name }} {{ .Post }}</a>
+            </li>
+        {{ end }}
+    {{ end }}
+</ul>
